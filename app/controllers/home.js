@@ -33,12 +33,14 @@ router.get('/login', function (req, res, next) {
 
 router.post('/login/submit', function (req, res, next) {
    if (req.body.account === 'admin' && req.body.password === 'admin') {
-        res.render('main', {
-            title: '后台管理'
-        });
+        res.send("error:0")
    } else {
-    
+        res.send("error:1")
    }
 });
 
-
+router.get('/main', function (req, res, next) {
+    res.render('main', {
+      title: '后台管理'
+    });
+});
